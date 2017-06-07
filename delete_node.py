@@ -20,6 +20,7 @@ a = LinkedListNode('A')
 b = LinkedListNode('B')
 c = LinkedListNode('C')
 
+
 a.next = b
 b.next = c
 
