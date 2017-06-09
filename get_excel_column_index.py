@@ -1,4 +1,5 @@
 import string
+
 def get_excel_column_index(column_name):
     index = 0
     chars = list(column_name)
