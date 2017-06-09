@@ -44,14 +44,4 @@ def test():
     assert look_and_say_sequence(1113213211) == 31131211131221  
 test()
 
-''' 
-print(look_and_say_sequence(1))
-print(look_and_say_sequence(11))
-print(look_and_say_sequence(21))
-print(look_and_say_sequence(1211))
-print(look_and_say_sequence(111221))
-print(look_and_say_sequence(312211))
-print(look_and_say_sequence(13112221))
-print(look_and_say_sequence(1113213211))
-'''
 
