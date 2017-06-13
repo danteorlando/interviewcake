@@ -1,4 +1,6 @@
-
+'''
+Implements a method for dividing two numbers using only bitwise operations.
+'''
 def bitwise_divide(numerator, denominator):
     result = 0
     if (denominator % 2 > 0):
