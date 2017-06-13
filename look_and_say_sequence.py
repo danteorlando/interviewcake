@@ -22,7 +22,10 @@ def look_and_say_sequence(current_element):
     return int(next_element)
     
     
-'''    
+''' 
+Given is sequence of numbers: 1, 11, 21, 1211, 111221, ... 
+Find out how the sequence works and create the function to compute the next element.
+   
 1
 11
 21
