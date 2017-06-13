@@ -1,4 +1,13 @@
 
+'''
+Method to calculation the square root of a number n.
+
+This method uses an estimation algorithm and is only accurate to .01
+
+The arbitrary limit on the first loop was added just for experimentation purposes.
+This should be re-factored to remove this limit.
+'''
+
 def find_square_root(n):
     lower_bound = 1
     upper_bound = 2
