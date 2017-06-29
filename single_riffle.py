@@ -1,4 +1,5 @@
 '''
+
 I figured out how to get rich: online poker.
 I suspect the online poker game I'm playing shuffles cards by doing a single "riffle"
 
@@ -97,7 +98,7 @@ In particular this expression:
   half1[1:]
 
 That's a slice, and it costs O(m) time and space, where m is the size of the resulting list. That's going to determine our overall 
-time and space cost here—the rest of the work we're doing is constant space and time.
+time and space cost hereï¿½the rest of the work we're doing is constant space and time.
 
 In our recursing we'll build up n frames on the call stack. Each of those frames will hold a different slice of our original shuffled_deck 
 (and half1 and half2, though we only slice one of them in each recursive call).
@@ -207,12 +208,12 @@ O(n) time and O(1) additional space.
 
 Becky if you're reading this I didn't really mean what I said in the problem statement. It's just that things have 
 been hard lately and anyway if you'll just give me another chance I promise it won't be like last time. 
-I'm a wreck without you. Like a collapsed soufflé. Please Becky.
+I'm a wreck without you. Like a collapsed soufflï¿½. Please Becky.
 
 Bonus
 This assumes shuffled_deck contains all 52 cards. What if we can't trust this (e.g. some cards are being secretly removed by the shuffle)?
 This assumes each number in shuffled_deck is unique. How can we adapt this to rifling lists of random integers with potential repeats?
-Our solution returns True if you just cut the deck—take one half and put it on top of the other. While that technically meets the 
+Our solution returns True if you just cut the deckï¿½take one half and put it on top of the other. While that technically meets the 
 definition of a riffle, what if you wanted to ensure that some mixing of the two halves occurred?
 
 What We Learned
