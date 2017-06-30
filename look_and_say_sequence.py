@@ -35,6 +35,7 @@ Find out how the sequence works and create the function to compute the next elem
 13112221
 1113213211
 31131211131221
+
 '''
 def test():
     assert look_and_say_sequence(1) == 11
