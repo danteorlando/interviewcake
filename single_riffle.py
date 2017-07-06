@@ -98,7 +98,7 @@ In particular this expression:
   half1[1:]
 
 That's a slice, and it costs O(m) time and space, where m is the size of the resulting list. That's going to determine our overall 
-time and space cost here�the rest of the work we're doing is constant space and time.
+time and space cost here the rest of the work we're doing is constant space and time.
 
 In our recursing we'll build up n frames on the call stack. Each of those frames will hold a different slice of our original shuffled_deck 
 (and half1 and half2, though we only slice one of them in each recursive call).
@@ -208,12 +208,12 @@ O(n) time and O(1) additional space.
 
 Becky if you're reading this I didn't really mean what I said in the problem statement. It's just that things have 
 been hard lately and anyway if you'll just give me another chance I promise it won't be like last time. 
-I'm a wreck without you. Like a collapsed souffl�. Please Becky.
+I'm a wreck without you. Like a collapsed souffle. Please Becky.
 
 Bonus
 This assumes shuffled_deck contains all 52 cards. What if we can't trust this (e.g. some cards are being secretly removed by the shuffle)?
 This assumes each number in shuffled_deck is unique. How can we adapt this to rifling lists of random integers with potential repeats?
-Our solution returns True if you just cut the deck�take one half and put it on top of the other. While that technically meets the 
+Our solution returns True if you just cut the deck take one half and put it on top of the other. While that technically meets the 
 definition of a riffle, what if you wanted to ensure that some mixing of the two halves occurred?
 
 What We Learned
@@ -225,5 +225,31 @@ Be careful of the hidden time and space costs of list slicing! Consider tracking
 (as we do in our final solution).
 
 '''
+half1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]
+half2 = [27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52]
+
+deck = [1,2,27,28,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52]
+
+
+def is_single_riffle(h1, h2, d):
+    ctr1 = 0
+    ctr2 = 0
+    for card in d:
+        print(card)
+        if ctr1 < len(h1) and card == h1[ctr1]:
+            ctr1 += 1
+        elif ctr2 < len(h2) and card == h2[ctr2]:
+            ctr2 += 1
+        else:
+            return False
+        
+    return True
+
+print(is_single_riffle(half1, half2, deck))
+
+
+
+
+
 
 
