@@ -231,3 +231,6 @@ So don't be fooled: "one pass" isn't always fewer steps than "two passes." Alway
 
 
 '''
+
+def kth_to_last_node():
+    return 1
