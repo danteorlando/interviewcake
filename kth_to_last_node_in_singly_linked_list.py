@@ -1,6 +1,6 @@
 '''
-You have a linked list ↴ and want to find the kkth to last node.
-Write a function kth_to_last_node() that takes an integer kk and the head_node of a singly linked list, and returns the kkth to last node in the list.
+You have a linked list and want to find the kth to last node.
+Write a function kth_to_last_node() that takes an integer k and the head_node of a singly linked list, and returns the kth to last node in the list.
 
 For example:
 
@@ -26,13 +26,13 @@ kth_to_last_node(2, a)
 
 
 Breakdown
-It might be tempting to iterate through the list until we reach the end and then walk backwards kk nodes.
+It might be tempting to iterate through the list until we reach the end and then walk backwards k nodes.
 
-But we have a singly linked list! We can�t go backwards. What else can we do?
+But we have a singly linked list! We can't go backwards. What else can we do?
 
 What if we had the length of the list?
 
-Then we could calculate how far to walk, starting from the head, to reach the kkth to last node.
+Then we could calculate how far to walk, starting from the head, to reach the kth to last node.
 
 If the list has n nodes:
 
@@ -217,7 +217,13 @@ However, the second approach might still be slightly faster, due to some caching
 
 Let's focus on caching. Usually when we grab some data from memory (for example, info about a linked list node), we also store that data in a small cache right on the processor. If we need to use that same data again soon after, we can quickly grab it from the cache. But if we don't use that data for a while, we're likely to replace it with other stuff we've used more recently (this is called a "least recently used" replacement policy).
 
-Both of our algorithms access a lot of nodes in our list twice, so they could exploit this caching. But notice that in our second algorithm there's a much shorter time between the first and second times that we access a given node (this is sometimes called "temporal locality of reference"). Thus it seems more likely that our second algorithm will save time by using the processor's cache! But this assumes our processor's cache uses something like a "least recently used" replacement policy�it might use something else. Ultimately the best way to really know which algorithm is faster is to implement both and time them on a few different inputs!
+Both of our algorithms access a lot of nodes in our list twice, so they could exploit this caching. 
+But notice that in our second algorithm there's a much shorter time between the first and second times 
+that we access a given node (this is sometimes called "temporal locality of reference"). 
+Thus it seems more likely that our second algorithm will save time by using the processor's cache! 
+But this assumes our processor's cache uses something like a "least recently used" replacement policy 
+it might use something else. Ultimately the best way to really know which algorithm is faster is to 
+implement both and time them on a few different inputs!
 
 Bonus
 Can we do better? What if we expect n to be huge and k to be pretty small. In this case our target node will be close to the end of the list...so it seems a waste that we have to walk all the way from the beginning twice.
@@ -231,6 +237,40 @@ So don't be fooled: "one pass" isn't always fewer steps than "two passes." Alway
 
 
 '''
+class LinkedListNode:
+    def __init__(self, value):
+        self.value = value
+        self.next  = None
 
-def kth_to_last_node():
-    return 1
+def kth_to_last_node(k, head):
+    list_len = 1
+    node = head
+    while node.next != None:
+        list_len += 1
+        node = node.next
+    #print(list_len)
+     
+    kth_to_last_idx = list_len - (k - 1)
+    #print(kth_to_last_idx)
+    
+    node = head
+    for _ in xrange(1, kth_to_last_idx):
+        #print(i)
+        node = node.next
+    return node
+
+
+a = LinkedListNode("Angel Food")
+b = LinkedListNode("Bundt")
+c = LinkedListNode("Cheese")
+d = LinkedListNode("Devil's Food")
+e = LinkedListNode("Eccles")
+
+a.next = b
+b.next = c
+c.next = d
+d.next = e
+
+print(kth_to_last_node(3, a).value)
+# returns the node with value "Devil's Food" (the 2nd to last node)
+
