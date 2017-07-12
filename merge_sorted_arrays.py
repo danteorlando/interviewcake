@@ -24,7 +24,7 @@ We could simply concatenate (join together) the two lists into one, then sort th
 
 What would the time cost be?
 
-O(nlgn), where nn is the total length of our output list (the sum of the lengths of our inputs).
+O(nlgn), where n is the total length of our output list (the sum of the lengths of our inputs).
 
 We can do better. With this algorithm, we're not really taking advantage of the fact that the 
 input lists are themselves already sorted. How can we save time by using this fact?
@@ -63,12 +63,12 @@ Okay, good start! That works for finding the 0th element. Now how do we choose t
 
 Let's look at a sample input:
 
-  [3,  4,  6, 10, 11, 15] # my_list
+[3,  4,  6, 10, 11, 15] # my_list
 [1,  5,  8, 12, 14, 19] # alices_list
 
 To start we took the 0th element from alices_list and put it in the 0th slot in the output list:
 
-  [3,  4,  6, 10, 11, 15] # my_list
+[3,  4,  6, 10, 11, 15] # my_list
 [1,  5,  8, 12, 14, 19] # alices_list
 [1,  x,  x,  x,  x,  x] # merged_list
 
@@ -85,7 +85,7 @@ Or we could even imagine it's removed from the list:
 [5,  8, 12, 14, 19]     # alices_list
 [1,  x,  x,  x,  x,  x] # merged_list
 
-Now to get our next element we can use the same approach we used to get the 0th element—it's the smallest 
+Now to get our next element we can use the same approach we used to get the 0th element it's the smallest 
 of the earliest unmerged elements in either list! In other words, it's the smaller of the leftmost elements 
 in either list, assuming we've removed the elements we've already merged in.
 
@@ -142,7 +142,7 @@ We'll get an IndexError in all three cases!
 
 How can we fix this?
 
-We can probably solve these cases at the same time. They're not so different—they just have to do 
+We can probably solve these cases at the same time. They're not so different they just have to do 
 with handling empty lists.
 
 To start, we could treat each of our lists being out of elements as a separate case to handle, 
@@ -186,12 +186,12 @@ def merge_lists(my_list, alices_list):
 
 Cool. This'll work, but it's a bit repetitive. We have these two lines twice:
 
-  merged_list[current_index_merged] = my_list[current_index_mine]
+merged_list[current_index_merged] = my_list[current_index_mine]
 current_index_mine += 1
 
 Same for these two lines:
 
-  merged_list[current_index_merged] = alices_list[current_index_alices]
+merged_list[current_index_merged] = alices_list[current_index_alices]
 current_index_alices += 1
 
 That's not DRY. Maybe we can avoid repeating ourselves by bringing our code back down to just 2 cases.
@@ -282,7 +282,7 @@ lists where subsections of the lists are already sorted. For this reason, a more
   def merge_sorted_lists(arr1, arr2):
     return sorted(arr1 + arr2)
 
-is actually faster until nn gets pretty big. Like 1,000,000.
+is actually faster until n gets pretty big. Like 1,000,000.
 
 Also, in Python 2.6+, there's a built-in function for merging sorted lists into one sorted list: 
 heapq.merge().
@@ -301,3 +301,39 @@ Sometimes it's easy to lose steam at the end of a coding interview when you're d
 sprinting through to the finish! Think about edge cases. Look for off-by-one errors.
 
 '''
+
+my_list = [3, 4, 6, 10, 11, 15]
+alices_list = [1, 5, 8, 12, 14, 19]
+
+def merge_lists(my_list, alices_list):
+    mCtr = 0
+    aCtr = 0
+    mLen = len(my_list)
+    aLen = len(alices_list)
+    loopLen = mLen + aLen
+    merged_list = []
+    
+    for i in xrange(loopLen):
+        if mCtr < mLen and aCtr < aLen:
+            
+            if my_list[mCtr] > alices_list[aCtr]:
+                merged_list.append(alices_list[aCtr])
+                aCtr += 1
+            elif my_list[mCtr] < alices_list[aCtr]:
+                merged_list.append(my_list[mCtr])
+                mCtr +=1 
+            else:
+                merged_list.append(alices_list[aCtr])
+                aCtr += 1
+                merged_list.append(my_list[mCtr])
+                mCtr +=1 
+        elif mCtr < mLen:
+            merged_list.append(my_list[mCtr])
+            mCtr +=1 
+        elif aCtr < aLen:
+            merged_list.append(alices_list[aCtr])
+            aCtr += 1
+    return merged_list
+    
+print(merge_lists(my_list, alices_list))
+# prints [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
