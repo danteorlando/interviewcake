@@ -264,7 +264,7 @@ The if statement is carefully constructed to avoid an IndexError from indexing i
 We take advantage of Python's lazy evaluation and check first if the lists are exhausted.
 
 Complexity
-O(n) time and O(n) additional space, where nn is the number of items in the merged list.
+O(n) time and O(n) additional space, where n is the number of items in the merged list.
 
 The added space comes from allocating the merged_list. There's no way to do this " in-place " 
 because neither of our input lists are necessarily big enough to hold the merged list.
@@ -313,7 +313,7 @@ def merge_lists(my_list, alices_list):
     loopLen = mLen + aLen
     merged_list = []
     
-    for i in xrange(loopLen):
+    for _ in xrange(loopLen):
         if mCtr < mLen and aCtr < aLen:
             
             if my_list[mCtr] > alices_list[aCtr]:
