@@ -305,6 +305,10 @@ sprinting through to the finish! Think about edge cases. Look for off-by-one err
 my_list = [3, 4, 6, 10, 11, 15]
 alices_list = [1, 5, 8, 12, 14, 19]
 
+my_list2 = [3, 4, 6, 10, 11, 15, 21, 22, 36]
+alices_list2 = [1, 5, 8, 12, 14, 19]
+
+
 def merge_lists(my_list, alices_list):
     mCtr = 0
     aCtr = 0
@@ -315,7 +319,6 @@ def merge_lists(my_list, alices_list):
     
     for _ in xrange(loopLen):
         if mCtr < mLen and aCtr < aLen:
-            
             if my_list[mCtr] > alices_list[aCtr]:
                 merged_list.append(alices_list[aCtr])
                 aCtr += 1
@@ -337,3 +340,5 @@ def merge_lists(my_list, alices_list):
     
 print(merge_lists(my_list, alices_list))
 # prints [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
+
+print(merge_lists(my_list2, alices_list2))
