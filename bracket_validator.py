@@ -95,7 +95,7 @@ characters are openers, so we push them all onto the stack).
 Bonus
 In Ruby, sometimes expressions are surrounded by vertical bars, "|like this|". Extend your 
 validator to validate vertical bars. Careful: there's no difference between the "opener" and 
-"closer" in this case—they're the same character!
+"closer" in this case they're the same character!
 
 What We Learned
 The trick was to use a stack .
@@ -109,3 +109,29 @@ tree or graph traversal (like depth-first traversal)
 So remember, if you're doing either of those things, try using a stack!
 
 '''
+s1 = "{ [ ] ( ) }"
+s2 = "{ [ ( ] ) }"
+s3 = "{ [ }"
+
+
+def is_valid(code):
+    brackets = code.split()
+    openers = []
+    for bracket in brackets:
+        if bracket == '{' or bracket == '[' or bracket == '(':
+            openers.append(bracket)
+        else:
+            b = openers.pop()
+            if bracket == '}' and b != '{':
+                return False
+            elif bracket == ']' and b != '[':
+                return False
+            elif bracket == ')' and b != '(':
+                return False
+    return True
+
+print(is_valid(s1))
+print(is_valid(s2))
+print(is_valid(s3))
+
+
