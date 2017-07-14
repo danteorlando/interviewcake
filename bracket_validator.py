@@ -112,6 +112,7 @@ So remember, if you're doing either of those things, try using a stack!
 s1 = "{ [ ] ( ) }"
 s2 = "{ [ ( ] ) }"
 s3 = "{ [ }"
+s4 = "{ ( { [ ( [ ] { } ) { ( ) } ] } ) }"
 
 
 def is_valid(code):
@@ -133,5 +134,6 @@ def is_valid(code):
 print(is_valid(s1))
 print(is_valid(s2))
 print(is_valid(s3))
+print(is_valid(s4))
 
 
