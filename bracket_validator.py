@@ -108,6 +108,7 @@ parsing (like in this problem)
 tree or graph traversal (like depth-first traversal)
 So remember, if you're doing either of those things, try using a stack!
 
+
 '''
 s1 = "{ [ ] ( ) }"
 s2 = "{ [ ( ] ) }"
