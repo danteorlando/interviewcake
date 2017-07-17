@@ -15,6 +15,7 @@ b.next = c
 c.next = d
 d.next = e
 
+
 '''
 def print_list(head):
     while head != None:
