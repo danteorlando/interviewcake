@@ -15,6 +15,7 @@ b.next = c
 c.next = d
 d.next = e
 
+'''
 def print_list(head):
     while head != None:
         print(head.value)
@@ -29,7 +30,7 @@ def reverse_list(head):
 
 reverse_list(a)
 print_list(a)
-
+'''
 
 def print_in_reverse_order(node):
     if node == None:
@@ -37,7 +38,7 @@ def print_in_reverse_order(node):
     print_in_reverse_order(node.next)
     print(node.value)
 
-#print_in_reverse_order(a)
+print_in_reverse_order(a)
 
 
 
