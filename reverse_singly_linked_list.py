@@ -16,31 +16,27 @@ c.next = d
 d.next = e
 
 
-'''
 def print_list(head):
     while head != None:
         print(head.value)
         head = head.next
 
-print_list(a)
+#print_list(a)
 
-def reverse_list(head):
-    if head == None:
-        return
-    reverse_list(head.next)
-
-reverse_list(a)
-print_list(a)
-'''
-
-def print_in_reverse_order(node):
-    if node == None:
-        return
-    print_in_reverse_order(node.next)
-    print(node.value)
-
-print_in_reverse_order(a)
-
-
-
+def reverse_list(node):
+    head = node # store a ref to head
+    stck = []
+    while node != None:
+        stck.append(node.value)
+        node = node.next
     
+    node = head
+    while node != None:
+        node.value = stck.pop()
+        node = node.next
+    
+    return head
+
+print_list(reverse_list(a))
+
+
