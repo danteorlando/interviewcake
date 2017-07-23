@@ -234,3 +234,6 @@ This'll keep your thinking organized and also help get your interviewer on
 the same page.
 
 '''
+
+def second_largest(root):
+    return
