@@ -251,3 +251,9 @@ class BinaryTreeNode:
         
 def second_largest(root):
     return
+
+def find_largest(root_node):
+    if root_node.right:
+        return find_largest(root_node.right)
+    return root_node.value
+
