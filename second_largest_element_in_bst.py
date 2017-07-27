@@ -248,6 +248,17 @@ class BinaryTreeNode:
     def insert_right(self, value):
         self.right = BinaryTreeNode(value)
         return self.right
+a = BinaryTreeNode(5)
+b = a.insert_left(3)
+c = b.insert_left(1)
+c = b.insert_right(4)
+d = a.insert_right(8)
+e = d.insert_left(7)
+e = d.insert_right(12)
+f = e.insert_left(10)
+g = f.insert_left(9)
+g = f.insert_right(11)
+
         
 def second_largest(root):
     return
@@ -256,4 +267,12 @@ def find_largest(root_node):
     if root_node.right:
         return find_largest(root_node.right)
     return root_node.value
+
+
+
+print(find_largest(a))
+
+
+
+
 
