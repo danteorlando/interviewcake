@@ -268,8 +268,6 @@ def find_largest(root_node):
         return find_largest(root_node.right)
     return root_node.value
 
-
-
 print(find_largest(a))
 
 
