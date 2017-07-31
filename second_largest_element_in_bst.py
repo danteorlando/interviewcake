@@ -260,16 +260,38 @@ g = f.insert_left(9)
 g = f.insert_right(11)
 
         
-def second_largest(root):
-    return
 
 def find_largest(root_node):
-    if root_node.right:
+    if root_node is None:
+        raise Exception('Tree must have at least 1 node')
+    if root_node.right is not None:
         return find_largest(root_node.right)
     return root_node.value
 
+def find_second_largest(root_node):
+    if root_node is None or \
+            (root_node.left is None and root_node.right is None):
+        raise Exception('Tree must have at least 2 nodes')
+
+    # case: we're currently at largest, and largest has a left subtree,
+    # so 2nd largest is largest in said subtree
+    if root_node.left and not root_node.right:
+        return find_largest(root_node.left)
+
+    # case: we're at parent of largest, and largest has no left subtree,
+    # so 2nd largest must be current node
+    if root_node.right and \
+       not root_node.right.left and \
+       not root_node.right.right:
+        return root_node.value
+
+    # otherwise: step right
+    return find_second_largest(root_node.right)
+
+
 print(find_largest(a))
 
+print(find_second_largest(a))
 
 
 
