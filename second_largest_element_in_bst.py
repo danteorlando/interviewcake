@@ -232,8 +232,8 @@ cases.
 It can be really helpful to actually draw out sample inputs for those cases. 
 This'll keep your thinking organized and also help get your interviewer on 
 the same page.
-
 '''
+
 class BinaryTreeNode:
 
     def __init__(self, value):
