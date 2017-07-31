@@ -265,6 +265,7 @@ def find_largest(root_node):
     if root_node is None:
         raise Exception('Tree must have at least 1 node')
     if root_node.right is not None:
+        print(root_node.value)
         return find_largest(root_node.right)
     return root_node.value
 
@@ -291,7 +292,7 @@ def find_second_largest(root_node):
 
 print(find_largest(a))
 
-print(find_second_largest(a))
+#print(find_second_largest(a))
 
 
 
