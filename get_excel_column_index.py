@@ -1,7 +1,9 @@
 import string
 
 '''
-Method to determine a zero-based index of an excel column based on the column name.
+Method to determine a zero-based index of an excel column based on the column
+name.
+
 Excel supports maximum 16,384 columns from A -> XFD
 '''
 
@@ -22,7 +24,7 @@ def get_excel_column_index(column_name):
         index = (26 * (string.uppercase.index(first_char) + 1)) + (string.uppercase.index(second_char) + 1)
     else:
         first_char = chars[0]
-        index = string.uppercase.index(first_char) + 1    
+        index = string.uppercase.index(first_char) + 1
     return index
 
 print(get_excel_column_index('A'))
@@ -30,4 +32,3 @@ print(get_excel_column_index('AZ'))
 print(get_excel_column_index('BA'))
 print(get_excel_column_index('ZZ'))
 print(get_excel_column_index('XFD'))
-

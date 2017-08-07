@@ -4,7 +4,9 @@ Method to calculation the square root of a number n.
 
 This method uses an estimation algorithm and is only accurate to .01
 
-The arbitrary limit on the first loop was added just for experimentation purposes.
+The arbitrary limit on the first loop was added just for experimentation
+purposes.
+
 This should be re-factored to remove this limit.
 '''
 
@@ -29,7 +31,7 @@ def find_square_root(n):
                 else:
                     #print('square root of %d is approximately %f' % (n, lower_bound))
                     return lower_bound
-    
+
 print(find_square_root(6))
 print(find_square_root(7))
 print(find_square_root(8))
@@ -37,5 +39,3 @@ print(find_square_root(9))
 print(find_square_root(10))
 print(find_square_root(47))
 print(find_square_root(50))
-
-
