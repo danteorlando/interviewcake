@@ -72,7 +72,7 @@ This would work. But what's the complexity?
 
 Here we'd try 4^{12}
 combinations (every combination of 4 colors for 12 nodes). In general, we'll 
-have to check O(D^n) colorings. And that's not all—each time we try a coloring, 
+have to check O(D^n) colorings. And that's not allï¿½each time we try a coloring, 
 we have to check all MM edges to see if the vertices at both ends have 
 different colors. So, our runtime is O(M*D^n). That's exponential time since n 
 is in an exponent.
@@ -114,7 +114,7 @@ Let's think back to our earlier argument about whether a coloring always exists:
 Each node has at most DD neighbors, and we have D+1D+1 colors. So, if we look 
 at any node, there's always at least one color that's not taken by its neighbors.
 
-That reasoning works here, too! So no—we'll never back ourselves into a corner.
+That reasoning works here, too! So noï¿½we'll never back ourselves into a corner.
 
 Ok, what's our runtime?
 
@@ -279,7 +279,7 @@ we find a legal color.
                 break
 
 Complexity
-O(N+M) time where NN is the number of nodes and MM is the number of edges.
+O(N+M) time where N is the number of nodes and M is the number of edges.
 
 The runtime might not look linear because we have outer and inner loops. The 
 trick is to look at each step and think of things in terms of the total number 
@@ -294,7 +294,7 @@ the node on either end of each edge. O(M) time.
 When we assign a color to each node, we're careful to stop checking colors as 
 soon as we find one that works. In the worst case, we'll have to check one more 
 color than the total number of neighbors. Again, each edge in the graph adds 
-two neighbors—one for the node on either end—so there are 2*M neighbors. So, in 
+two neighborsï¿½one for the node on either endï¿½so there are 2*M neighbors. So, in 
 total, we'll have to try O(N+M) colors.
 
 Putting all the steps together, our complexity is O(N+M).
@@ -304,7 +304,7 @@ set. In the worst case, all the neighbors of a node with the maximum degree (D)
 have different colors, so our set takes up O(D) space.
 
 Bonus
-Our solution runs in O(N+M)O(N+M) time but takes O(D) space. Can we get down to 
+Our solution runs in O(N+M) time but takes O(D) space. Can we get down to 
 O(1) space?
 
 Our solution finds a legal coloring, but there are usually many legal colorings. 
@@ -313,8 +313,8 @@ What if we wanted to optimize a coloring to use as few colors as possible?
 The lowest number of colors we can use to legally color a graph is called the 
 chromatic number.
 
-There's no known polynomial time solution for finding a graph’s chromatic 
-number. It might be impossible, or maybe we just haven’t figured out a solution 
+There's no known polynomial time solution for finding a graph's chromatic 
+number. It might be impossible, or maybe we just haven't figured out a solution 
 yet.
 
 We can't even determine in polynomial time if a graph can be colored using a 
@@ -329,7 +329,7 @@ intractable.
 
 The problem of determining if a graph can be colored with k colors is in the 
 class of problems called NP (nondeterministic polynomial time). This means that 
-in polynomial time, we can verify a solution is correct but we can’t come up 
+in polynomial time, we can verify a solution is correct but we can't come up 
 with a solution. In this case, if we have a graph that's already colored with k 
 colors we verify the coloring uses k colors and is legal, but we can't take a 
 graph and a number k and determine if the graph can be colored with k colors.
@@ -337,9 +337,9 @@ graph and a number k and determine if the graph can be colored with k colors.
 If you can find a solution or prove a solution doesn't exist, you'll win a 
 $1,000,000 Millennium Problem Prize.
 
-For coloring a graph using as few colors as possible, we don’t have a feasible 
+For coloring a graph using as few colors as possible, we don't have a feasible 
 solution and for real-world problems we'd often need to check so many 
-possibilities that we’ll never be able to use brute-force no matter how 
+possibilities that we'll never be able to use brute-force no matter how 
 advanced our computers become.
 
 One way to reliably reduce the number of colors we use is to use the greedy 
