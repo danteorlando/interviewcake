@@ -128,6 +128,7 @@ space (plus half that, since we're also slicing one of our halves, but that's
 just a constant multiplier so we can ignore it). In our second recursive call,
 slicing takes n-2 time and space. Etcetera.
 
+
 So our total time and space cost for slicing comes to:
 
 (n - 1) + (n - 2) + ... + 2 + 1
