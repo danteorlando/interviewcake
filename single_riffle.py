@@ -15,6 +15,8 @@ I can make more informed bets and get rich and finally prove to my ex that I am
 not a "loser with an unhealthy cake obsession" (even though it's too late now
 because she let me go and she's never getting me back).
 
+
+
 Breakdown
 How can we re-phrase this problem in terms of smaller subproblems?
 
@@ -126,6 +128,7 @@ just a constant multiplier so we can ignore it). In our second recursive call,
 slicing takes n-2 time and space. Etcetera.
 
 So our total time and space cost for slicing comes to:
+
 
 (n - 1) + (n - 2) + ... + 2 + 1
 

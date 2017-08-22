@@ -359,7 +359,6 @@ down the final runtime, but here it actually made our runtime linear!
 
 '''
 
-
 class GraphNode:
 
   def __init__(self, label):
