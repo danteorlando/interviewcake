@@ -43,7 +43,6 @@ Looking at three face up stacks of cards, the top card of the shuffled deck is
 
 Now that we know the first card checks out, how do we get to our subproblem?
 
-
 Let's "throw out" the top card from shuffled_deck as well as the card it matched
 with from the top of half1 or half2. Those cards are now "accounted for."
 
