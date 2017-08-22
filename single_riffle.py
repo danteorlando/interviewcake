@@ -130,6 +130,7 @@ slicing takes n-2 time and space. Etcetera.
 
 So our total time and space cost for slicing comes to:
 
+
 (n - 1) + (n - 2) + ... + 2 + 1
 
 This is a common series that turns out to be O(n^2).
