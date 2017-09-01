@@ -111,7 +111,7 @@ Is it possible we'll back ourselves into a corner somehow and run out of colors
 for some nodes?
 
 Let's think back to our earlier argument about whether a coloring always exists:
-Each node has at most DD neighbors, and we have D+1D+1 colors. So, if we look
+Each node has at most D neighbors, and we have D+1 colors. So, if we look
 at any node, there's always at least one color that's not taken by its neighbors.
 
 That reasoning works here, too! So no, we'll never back ourselves into a corner.
@@ -194,13 +194,13 @@ each neighbor has a different color.
 Let's use that trick of looking at all of the loop iterations together. In
 total, over the course of the entire loop, how many neighbors are there?
 
-Well, each of our MM edges add two neighbors to the graph: one for each node on
+Well, each of our M edges add two neighbors to the graph: one for each node on
 either end. So that's 2*M neighbors in total. Which means 2*M illegal colors in
 total.
 
 But remember: we said we'd try as many as len(illegal_colors) + 1 colors per
-node. We still have to factor in that "+1"! Across all NN of our nodes, that's
-an additional NN colors. So we try 2*M+N colors in total across all of our
+node. We still have to factor in that "+1"! Across all N of our nodes, that's
+an additional N colors. So we try 2*M+N colors in total across all of our
 nodes.
 
 That's O(M+N) time for assigning the first legal color to every node. Add that
@@ -288,7 +288,7 @@ of edges (M) wherever we can:
 We check if each node appears in its own set of neighbors. Checking if
 something is in a set is O(1), so doing it for all N nodes is O(N).
 When we get the illegal colors for each node, we iterate through that node's
-neighbors. So in total, we cross each of the graphs MM edges twice: once for
+neighbors. So in total, we cross each of the graphs M edges twice: once for
 the node on either end of each edge. O(M) time.
 
 When we assign a color to each node, we're careful to stop checking colors as
@@ -320,8 +320,8 @@ yet.
 We can't even determine in polynomial time if a graph can be colored using a
 given k colors. Even if k is as low as 3.
 
-We care about polynomial time solutions (nn raised to a constant power, like
-O(n^2) because for large nns, polynomial time algorithms are more practical to
+We care about polynomial time solutions (n raised to a constant power, like
+O(n^2) because for large ns, polynomial time algorithms are more practical to
 actually use than higher runtimes like exponential time (a constant raised to
 the power of n, like O(2^n). Computer scientists usually call algorithms with
 polynomial time solutions feasible, and problems with worse runtimes
@@ -376,3 +376,11 @@ b.neighbors.add(c)
 c.neighbors.add(b)
 
 graph = [a, b, c]
+
+
+def color_graph(graph, colors):
+    for node in graph:
+        for neighbor in node.neighbors:
+            print(neighbor.label)
+
+color_graph(graph, [])
