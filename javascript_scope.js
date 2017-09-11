@@ -1,4 +1,5 @@
 /*
+
 If we execute this Javascript, what will the browser's console show?
   var text = 'outside';
 function logIt(){
